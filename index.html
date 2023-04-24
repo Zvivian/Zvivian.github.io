@@ -152,6 +152,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-01搭建Linux系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/23/01%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/">搭建Linux系统</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/23/01%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2023-04-23T12:49:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>安装系统：ubuntu-22.15</p>
+<h1 id="第1步：从官网下载镜像文件"><a href="#第1步：从官网下载镜像文件" class="headerlink" title="第1步：从官网下载镜像文件"></a>第1步：从官网下载镜像文件</h1><pre><code>网址：https://ubuntu.com/
+最新版本：ubuntu-22.15Ehxh9u.04.2-desktop-amd64.iso
+</code></pre>
+<h1 id="第2步：烧录到U盘中"><a href="#第2步：烧录到U盘中" class="headerlink" title="第2步：烧录到U盘中"></a>第2步：烧录到U盘中</h1><pre><code>使用balenaEtcher烧录至U盘中，若无法识别到U盘可弹出重试
+</code></pre>
+<p><strong>注意</strong>：在Windows下烧写完成后，会提示需要格式磁盘。这是因为Windows无法识别ext4分区，一定要选择<strong>取消（不格式化）</strong>，否则会损坏SD卡中的分区，导致无法启动，因此提前备份好数据。</p>
+<h1 id="第3步：安装系统"><a href="#第3步：安装系统" class="headerlink" title="第3步：安装系统"></a>第3步：安装系统</h1><pre><code>* 插入启动U盘，根据电脑品牌按快捷键进入BIOS；
+* 利用方向键移动Boot，选择USB Key:UEFI: SanDisk, Partition2（这是我的U盘名字）回车；
+* 保存修改，重启即可U盘启动
+</code></pre>
+<h1 id="第4步：安装ubuntu"><a href="#第4步：安装ubuntu" class="headerlink" title="第4步：安装ubuntu"></a>第4步：安装ubuntu</h1><pre><code>进入Install引导界面
+* 选择语言：中文
+* 试用表示在U盘中使用，安装表示安装系统，点击安装；
+* 键盘布局仍然选择标准Chinese，点击继续；
+* 正常安装会同时安装办公软件，可以选择正常安装，同时勾选为图形或无线硬件，以及其它媒体格式安装第三方软件，然后点击继续；
+* 如果电脑原系统为Windows系统，会询问是否保留原来的Windows系统以和现在的系统并存，如果不想保存，可以点击清除整个磁盘并安装ubuntu，然后点击现在安装；
+* 时区设置为上海，点击继续；
+* 输入用户名并设置密码，点击继续开始安装，需等待一段时间；
+* 安装完毕，提示重新启动，提示拔出安装介质，按回车键；
+* 此时重启可能会进入BIOS模式，将启动项更改回去，然后保存重启；
+* 输入密码进入Ubuntu系统；
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux ubuntu-22.15</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/23/01%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-helloword" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -310,6 +406,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Linux ubuntu-22.15</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
