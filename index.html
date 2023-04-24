@@ -173,28 +173,37 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>安装系统：ubuntu-22.15</p>
-<h1 id="第1步：从官网下载镜像文件"><a href="#第1步：从官网下载镜像文件" class="headerlink" title="第1步：从官网下载镜像文件"></a>第1步：从官网下载镜像文件</h1><pre><code>网址：https://ubuntu.com/
-最新版本：ubuntu-22.15Ehxh9u.04.2-desktop-amd64.iso
-</code></pre>
-<h1 id="第2步：烧录到U盘中"><a href="#第2步：烧录到U盘中" class="headerlink" title="第2步：烧录到U盘中"></a>第2步：烧录到U盘中</h1><pre><code>使用balenaEtcher烧录至U盘中，若无法识别到U盘可弹出重试
-</code></pre>
-<p><strong>注意</strong>：在Windows下烧写完成后，会提示需要格式磁盘。这是因为Windows无法识别ext4分区，一定要选择<strong>取消（不格式化）</strong>，否则会损坏SD卡中的分区，导致无法启动，因此提前备份好数据。</p>
-<h1 id="第3步：安装系统"><a href="#第3步：安装系统" class="headerlink" title="第3步：安装系统"></a>第3步：安装系统</h1><pre><code>* 插入启动U盘，根据电脑品牌按快捷键进入BIOS；
-* 利用方向键移动Boot，选择USB Key:UEFI: SanDisk, Partition2（这是我的U盘名字）回车；
-* 保存修改，重启即可U盘启动
-</code></pre>
-<h1 id="第4步：安装ubuntu"><a href="#第4步：安装ubuntu" class="headerlink" title="第4步：安装ubuntu"></a>第4步：安装ubuntu</h1><pre><code>进入Install引导界面
-* 选择语言：中文
-* 试用表示在U盘中使用，安装表示安装系统，点击安装；
-* 键盘布局仍然选择标准Chinese，点击继续；
-* 正常安装会同时安装办公软件，可以选择正常安装，同时勾选为图形或无线硬件，以及其它媒体格式安装第三方软件，然后点击继续；
-* 如果电脑原系统为Windows系统，会询问是否保留原来的Windows系统以和现在的系统并存，如果不想保存，可以点击清除整个磁盘并安装ubuntu，然后点击现在安装；
-* 时区设置为上海，点击继续；
-* 输入用户名并设置密码，点击继续开始安装，需等待一段时间；
-* 安装完毕，提示重新启动，提示拔出安装介质，按回车键；
-* 此时重启可能会进入BIOS模式，将启动项更改回去，然后保存重启；
-* 输入密码进入Ubuntu系统；
-</code></pre>
+<ol>
+<li><p>从官网下载镜像文件</p>
+<p> 网址：<a target="_blank" rel="noopener" href="https://ubuntu.com/">https://ubuntu.com/</a></p>
+<p> 最新版本：ubuntu-22.15Ehxh9u.04.2-desktop-amd64.iso</p>
+</li>
+<li><p>烧录到U盘中<br> 使用balenaEtcher烧录至U盘中，若无法识别到U盘可弹出重试</p>
+<p> <strong>注意</strong>：在Windows下烧写完成后，会提示需要格式磁盘。这是因为Windows无法识别ext4分区，一定要选择<strong>取消（不格式化）</strong>，否则会损坏SD卡中的分区，导致无法启动，因此提前备份好数据。</p>
+</li>
+<li><p>安装系统</p>
+<ul>
+<li>插入启动U盘，根据电脑品牌按快捷键进入BIOS；</li>
+<li>利用方向键移动Boot，选择USB Key:UEFI: SanDisk, Partition2（这是我的U盘名字）回车；</li>
+<li>保存修改，重启即可U盘启动</li>
+</ul>
+</li>
+<li><p>安装ubuntu</p>
+<p> 进入Install引导界面</p>
+<ul>
+<li>选择语言：中文</li>
+<li>试用表示在U盘中使用，安装表示安装系统，点击安装；</li>
+<li>键盘布局仍然选择标准Chinese，点击继续；</li>
+<li>正常安装会同时安装办公软件，可以选择正常安装，同时勾选为图形或无线硬件，以及其它媒体格式安装第三方软件，然后点击继续；</li>
+<li>如果电脑原系统为Windows系统，会询问是否保留原来的Windows系统以和现在的系统并存，如果不想保存，可以点击清除整个磁盘并安装ubuntu，然后点击现在安装；</li>
+<li>时区设置为上海，点击继续；</li>
+<li>输入用户名并设置密码，点击继续开始安装，需等待一段时间；</li>
+<li>安装完毕，提示重新启动，提示拔出安装介质，按回车键；</li>
+<li>此时重启可能会进入BIOS模式，将启动项更改回去，然后保存重启；</li>
+<li>输入密码进入Ubuntu系统；</li>
+</ul>
+</li>
+</ol>
 
       
 
