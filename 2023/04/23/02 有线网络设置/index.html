@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>搭建Linux系统 | Hexo</title>
+  <title>有线网络设置 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装系统：ubuntu-22.15  下载镜像文件 网址：https:&#x2F;&#x2F;ubuntu.com&#x2F; 最新版本：ubuntu-22.15Ehxh9u.04.2-desktop-amd64.iso 烧录到U盘中 使用balenaEtcher烧录至U盘中，若无法识别到U盘可弹出重试 注意：在Windows下烧写完成后，会提示需要格式磁盘。这是因为Windows无法识别ext4分区，一定要选择取消（不格式化">
+  <meta name="description" content="系统：ubuntu-22.15 1. 确认连接  确认网线是否连接好，确认网卡是否已被系统识别； 1ip adrr show 2. 安装软件包  ppp和pppoe软件包： 1sudo apt-get install ppp pppoe 3. 配置拨号信息1sudo pppoe-setup   按照提示，输入账号和密码等信息，完成拨号配置 4. 启动拨号连接1sudo pppoe-start">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建Linux系统">
-<meta property="og:url" content="http://example.com/2023/04/23/01%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="有线网络设置">
+<meta property="og:url" content="http://example.com/2023/04/23/02%20%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="安装系统：ubuntu-22.15  下载镜像文件 网址：https:&#x2F;&#x2F;ubuntu.com&#x2F; 最新版本：ubuntu-22.15Ehxh9u.04.2-desktop-amd64.iso 烧录到U盘中 使用balenaEtcher烧录至U盘中，若无法识别到U盘可弹出重试 注意：在Windows下烧写完成后，会提示需要格式磁盘。这是因为Windows无法识别ext4分区，一定要选择取消（不格式化">
+<meta property="og:description" content="系统：ubuntu-22.15 1. 确认连接  确认网线是否连接好，确认网卡是否已被系统识别； 1ip adrr show 2. 安装软件包  ppp和pppoe软件包： 1sudo apt-get install ppp pppoe 3. 配置拨号信息1sudo pppoe-setup   按照提示，输入账号和密码等信息，完成拨号配置 4. 启动拨号连接1sudo pppoe-start">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-23T12:49:42.000Z">
-<meta property="article:modified_time" content="2023-04-24T06:16:52.704Z">
+<meta property="article:modified_time" content="2023-04-24T06:47:00.072Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Linux ubuntu-22.15">
+<meta property="article:tag" content="Internet Connection">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -155,19 +155,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-01搭建Linux系统" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-02 有线网络设置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      搭建Linux系统
+      有线网络设置
     </h1>
   
 
         
-        <a href="/2023/04/23/01%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+        <a href="/2023/04/23/02%20%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/" class="archive-article-date">
   	<time datetime="2023-04-23T12:49:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-23</time>
 </a>
         
@@ -175,30 +175,59 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>安装系统：ubuntu-22.15</p>
-<ol>
-<li><strong>下载镜像文件</strong><br> 网址：<a target="_blank" rel="noopener" href="https://ubuntu.com/">https://ubuntu.com/</a><br> 最新版本：ubuntu-22.15Ehxh9u.04.2-desktop-amd64.iso</li>
-<li><strong>烧录到U盘中</strong><br> 使用balenaEtcher烧录至U盘中，若无法识别到U盘可弹出重试<br> <strong>注意</strong>：在Windows下烧写完成后，会提示需要格式磁盘。这是因为Windows无法识别ext4分区，一定要选择<strong>取消（不格式化）</strong>，否则会损坏SD卡中的分区，导致无法启动，因此提前备份好数据。</li>
-<li><strong>安装系统</strong><ul>
-<li>插入启动U盘，根据电脑品牌按快捷键进入BIOS；</li>
-<li>利用方向键移动Boot，选择USB Key:UEFI: SanDisk, Partition2（这是我的U盘名字）回车；</li>
-<li>保存修改，重启即可U盘启动</li>
-</ul>
+        <p>系统：ubuntu-22.15</p>
+<h1 id="1-确认连接"><a href="#1-确认连接" class="headerlink" title="1. 确认连接"></a>1. <strong>确认连接</strong></h1><p>  确认网线是否连接好，确认网卡是否已被系统识别；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip adrr show</span><br></pre></td></tr></table></figure>
+<h1 id="2-安装软件包"><a href="#2-安装软件包" class="headerlink" title="2. 安装软件包"></a>2. <strong>安装软件包</strong></h1><p>  ppp和pppoe软件包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ppp pppoe</span><br></pre></td></tr></table></figure>
+<h1 id="3-配置拨号信息"><a href="#3-配置拨号信息" class="headerlink" title="3. 配置拨号信息"></a>3. <strong>配置拨号信息</strong></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pppoe-setup</span><br></pre></td></tr></table></figure>
+<p>  按照提示，输入账号和密码等信息，完成拨号配置</p>
+<h1 id="4-启动拨号连接"><a href="#4-启动拨号连接" class="headerlink" title="4. 启动拨号连接"></a>4. <strong>启动拨号连接</strong></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pppoe-start</span><br></pre></td></tr></table></figure>
+<p>  如果连接成功，终端中会输出类似于以下的信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PPP session is 1234</span><br><span class="line">Connected to 00:11:22:33:44:55</span><br><span class="line">Using interface ppp0</span><br><span class="line">Connect: ppp0 &lt;--&gt; eth0</span><br></pre></td></tr></table></figure>
+<p>  如果连接失败，可以通过以下命令查看错误信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pppoe-status</span><br></pre></td></tr></table></figure>
+<h1 id="5-断开拨号连接"><a href="#5-断开拨号连接" class="headerlink" title="5. 断开拨号连接"></a>5. <strong>断开拨号连接</strong></h1><p>  在终端中输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pppoe-stop</span><br></pre></td></tr></table></figure>
+<h1 id="6-将拨号连接加入开机自启动项目"><a href="#6-将拨号连接加入开机自启动项目" class="headerlink" title="6. 将拨号连接加入开机自启动项目"></a>6. <strong>将拨号连接加入开机自启动项目</strong></h1><ul>
+<li><p><strong>编辑ppp拨号配置文件：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ppp/peers/provider</span><br></pre></td></tr></table></figure>
+<p>其中，provider为拨号配置文件的名称，可以根据实际情况进行修改，在配置文件中添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动连接</span></span><br><span class="line">persist</span><br><span class="line"><span class="comment"># 自动拨号</span></span><br><span class="line">demand</span><br><span class="line"><span class="comment"># 拨号成功后，使用本机IP地址</span></span><br><span class="line">noauth</span><br><span class="line"><span class="comment"># 拨号失败时不自动重拨</span></span><br><span class="line">maxfail 0</span><br><span class="line"><span class="comment"># 拨号失败时等待60秒后重拨</span></span><br><span class="line">holdoff 60</span><br><span class="line"><span class="comment"># 拨号时等待的时间</span></span><br><span class="line">connect-delay 5000</span><br></pre></td></tr></table></figure>
+<p>其中，persist表示在拨号失败或断开连接时自动重拨，demand表示自动拨号。</p>
 </li>
-<li><strong>ubuntu安装</strong><br> 进入Install引导界面<ul>
-<li>选择语言：中文</li>
-<li>试用表示在U盘中使用，安装表示安装系统，点击安装；</li>
-<li>键盘布局仍然选择标准Chinese，点击继续；</li>
-<li>正常安装会同时安装办公软件，可以选择正常安装，同时勾选为图形或无线硬件，以及其它媒体格式安装第三方软件，然后点击继续；</li>
-<li>如果电脑原系统为Windows系统，会询问是否保留原来的Windows系统以和现在的系统并存，如果不想保存，可以点击清除整个磁盘并安装ubuntu，然后点击现在安装；</li>
-<li>时区设置为上海，点击继续；</li>
-<li>输入用户名并设置密码，点击继续开始安装，需等待一段时间；</li>
-<li>安装完毕，提示重新启动，提示拔出安装介质，按回车键；</li>
-<li>此时重启可能会进入BIOS模式，将启动项更改回去，然后保存重启；</li>
-<li>输入密码进入Ubuntu系统；</li>
-</ul>
+<li><p><strong>创建自启动脚本</strong></p>
+<p> 在终端中输入以下命令创建一个自启动脚本：</p>
 </li>
-</ol>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/init.d/autodial	</span><br></pre></td></tr></table></figure>
+<p>  使用vim编辑器向自启动脚本中添加以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">#!/bin/bash</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># description: Auto dialup script</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Auto dialup start&quot;</span></span><br><span class="line">        <span class="comment"># 使用pppoe-start命令启动拨号</span></span><br><span class="line">        /sbin/pppoe-start</span><br><span class="line">       ;;</span><br><span class="line">    stop)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Auto dialup stop&quot;</span></span><br><span class="line">        <span class="comment"># 使用pppoe-stop命令停止拨号</span></span><br><span class="line">        /sbin/pppoe-stop</span><br><span class="line">        ;;</span><br><span class="line">    restart)</span><br><span class="line">        <span class="variable">$0</span> stop</span><br><span class="line">        <span class="built_in">sleep</span> 1</span><br><span class="line">        <span class="variable">$0</span> start</span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> &#123;start|stop|restart&#125;&quot;</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<p>  其中，start表示启动拨号连接，stop表示停止拨号连接，restart表示重新启动拨号连接。保存并关闭文件后，使用以下命令添加执行权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> +x /etc/init.d/autodial</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>添加自启动项目</strong></p>
+<p>在终端中输入以下命令将自启动脚本添加到开机自启动项目中：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-rc.d autodial defaults</span><br></pre></td></tr></table></figure>
+<p>  至此，每次开机都会自动启动pppoe拨号连接了。</p>
+<p>  <strong>注意</strong>：以上命令中使用的是pppoe拨号连接方式，如果使用其他拨号方式，需要相应地修改ppp拨号配置文件和自启动脚本中的命令。</p>
+<h1 id="7-配置代理"><a href="#7-配置代理" class="headerlink" title="7. 配置代理"></a>7. <strong>配置代理</strong></h1><ul>
+<li><p><strong>安装v2rayN客户端</strong></p>
+<p>  可以使用wine工具来运行Windows下的v2rayN客户端，首先需要安装wine工具，可以使用以下命令来安装：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install wine</span><br></pre></td></tr></table></figure>
+<p>  然后，下载Windows下的v2rayN客户端，将其解压缩到指定目录下，例如&#x2F;home&#x2F;user&#x2F;v2rayN。</p>
+<ul>
+<li><p><strong>配置代理设置</strong></p>
+<p>  打开v2rayN客户端，点击左下角的“设置”按钮，在弹出的窗口中选择“代理设置”。在代理设置中，选择“HTTP代理”或“SOCKS5代理”，并填写代理服务器的地址和端口号。如果需要认证，还需要填写代理服务器的用户名和密码。点击“确定”保存设置。</p>
+</li>
+<li><p><strong>启动v2rayN代理</strong></p>
+<p>  在v2rayN客户端中，点击“启动V2Ray”按钮，等待状态变为“已连接”即可。此时，v2rayN客户端就已经通过代理连接互联网了。</p>
+</li>
+</ul>
 
       
 
@@ -233,7 +262,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Linux ubuntu-22.15</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Internet Connection</a>
         		</li>
       		
 		</ul>
@@ -289,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/23/01%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/04/23/02%20%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,9 +332,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2023/04/23/01%20%E6%90%AD%E5%BB%BALinux%E7%B3%BB%E7%BB%9F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          搭建Linux系统
+        
+      </div>
+    </a>
   
-    <a href="/2023/04/22/helloword/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一篇博客</div>
+  
+    <a href="/2023/04/22/03%20%E9%83%A8%E7%BD%B2Hexo%20GitHub%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">部署个人博客hexo</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -432,6 +470,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux ubuntu-22.15</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hexo Github blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Internet Connection</a>
               </li>
             
             <div class="clearfix"></div>
