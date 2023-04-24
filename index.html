@@ -259,6 +259,158 @@
 
 
   
+    <article id="post-02 有线网络设置（v2RayA）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/23/02%20%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%EF%BC%88v2RayA%EF%BC%89/">有线网络设置</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/23/02%20%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%EF%BC%88v2RayA%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2023-04-23T12:49:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>系统：Ubuntu 22.04 LTS (Jammy Jellyfish) 的第二个点版本</p>
+<h1 id="1-确认连接"><a href="#1-确认连接" class="headerlink" title="1. 确认连接"></a>1. <strong>确认连接</strong></h1><p>  确认网线是否连接好，确认网卡是否已被系统识别；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip <span class="built_in">link</span> show</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-安装PPPoE拨号有关软件包"><a href="#2-安装PPPoE拨号有关软件包" class="headerlink" title="2. 安装PPPoE拨号有关软件包"></a>2. <strong>安装PPPoE拨号有关软件包</strong></h1><p>需要ifupdown、ppp和pppoe软件包（<strong>注意</strong>：这里要提前弄清楚彼此之间的依赖关系：<a target="_blank" rel="noopener" href="https://packages.ubuntu.com搜索需要的软件包,会详细的列出与其他包的依赖关系)/">https://packages.ubuntu.com搜索需要的软件包，会详细的列出与其他包的依赖关系）</a></p>
+<p> 查看电脑的CPU架构和Ubuntu 软件包套件 jammy (22.04LTS)才能安装正确版本的软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -m</span><br></pre></td></tr></table></figure>
+
+<p>下载软件包到U盘中，然后转移至Ubuntu系统。</p>
+<p>安装软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i /path/to/deb/file.deb</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-配置拨号信息"><a href="#3-配置拨号信息" class="headerlink" title="3. 配置拨号信息"></a>3. <strong>配置拨号信息</strong></h1><p>  配置 PPPoE 连接，在终端中运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nm-connection-editor</span><br></pre></td></tr></table></figure>
+<ul>
+<li>弹出图形化界面，选择DSL&#x2F;PPPoE；</li>
+<li>点击加号，添加新的网络配置，输入连接类型选择DSL&#x2F;PPPoE；</li>
+<li>上级接口设置成 eno1；</li>
+<li>勾选声明接口；</li>
+<li>保存应用；</li>
+<li>在网络连接设置中选择新创建的 拨号连接；</li>
+</ul>
+<h1 id="4-安装代理"><a href="#4-安装代理" class="headerlink" title="4. 安装代理"></a>4. <strong>安装代理</strong></h1><ul>
+<li><p><strong>安装v2Ray内核</strong></p>
+<p>  v2rayA 提供的镜像脚本</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash</span><br></pre></td></tr></table></figure>
+
+<p>  安装后可以关掉官方的自启动服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">disable</span> v2ray --now</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>安装v2RayA</strong></p>
+<p>通过软件源安装：</p>
+<p>添加公钥</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo <span class="built_in">tee</span> /etc/apt/trusted.gpg.d/v2raya.asc</span><br></pre></td></tr></table></figure>
+
+<p>  添加 V2RayA 软件源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://apt.v2raya.org/ v2raya main&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/v2raya.list</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>  安装 V2RayA</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install v2raya</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>启动 v2rayA</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start v2raya.service</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>开机自启动 v2rayA</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> v2raya.service</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="5-配置代理"><a href="#5-配置代理" class="headerlink" title="5. 配置代理"></a>5. 配置代理</h1><ul>
+<li><p>通过 <a target="_blank" rel="noopener" href="http://localhost:2017/">http://localhost:2017</a> 访问 UI 界面；</p>
+</li>
+<li><p>（首次登录时）创建一个管理员账号，记住用户名密码，如果遗忘，使用命令重置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo v2raya --reset-password</span><br></pre></td></tr></table></figure></li>
+<li><p>导入节点：导入订阅链接，成功导入节点；</p>
+</li>
+<li><p>设置：点击右上角<code>设置</code>：</p>
+<p>   透明代理&#x2F;系统代理：<code>启用：大陆白名单模式</code>（即只代理国外的网站）</p>
+<p>   特殊模式：<code>supervisor</code></p>
+<p>   点击右上角<code>更新</code></p>
+<p>   点击<code>地址与端口</code>：可以自行更改使用的端口，默认是20170</p>
+<p>   点击<code>保存并应用</code></p>
+</li>
+<li><p>连接节点：在<code>JMSSUB.NET</code>建议选择6 个以内节点，然后在左上角点击红色<code>启动</code>按钮启动服务。启动服务后，所连接的节点呈现蓝色，左上角的图标也显示为蓝色的正在运行，代表服务启动成功。</p>
+</li>
+<li><p>浏览器设置代理（Firefox）：<code>常规</code>中<code>网络设置</code>选择<code>手都设置代理</code>：</p>
+<p>   SOCKS主机：127.0.0.1 端口：20170</p>
+<p>   勾选<code>使用SOCKS v5时代理DNS查询</code></p>
+<p>   确定退出</p>
+</li>
+</ul>
+<p>完成代理配置，可以正常访问外网</p>
+<p>在终端中访问：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:20171</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Internet Connection</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/23/02%20%E6%9C%89%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%AE%BE%E7%BD%AE%EF%BC%88v2RayA%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-03 部署Hexo GitHub个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -482,6 +634,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Linux Ubuntu 22.04 LTS (Jammy Jellyfish) 的第二个点版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Internet Connection</a>
               </li>
              
               <li class="article-tag-list-item">
