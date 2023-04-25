@@ -299,7 +299,10 @@
 <li>上级接口设置成 eno1；</li>
 <li>勾选声明接口；</li>
 <li>保存应用；</li>
-<li>在网络连接设置中选择新创建的 拨号连接；</li>
+<li>在网络连接设置中选择新创建的拨号连接；</li>
+<li>Linux里面有两套管理网络连接的方案<br>  &#x2F;etc&#x2F;network&#x2F;interfaces（&#x2F;etc&#x2F;init.d&#x2F;networking）适用于没有桌面的环境，或者那些完全不需要改动连接的场合；<br>  Network-Manager适用于有桌面的环境，特别是网络连接情况随时会变的情况；<br>这两套方案是冲突的，不能同时共存，为了避免冲突，又能共享配置：<br>  * 当Network-Manager发现&#x2F;etc&#x2F;network&#x2F;interfaces被改动的时候，关闭自己（显示为未托管），除非managed设置成真。<br>  于是解决方案为：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/NetworkManager/NetworkManager.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[ifupdown]</span><br><span class="line">managed=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+   重启<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/NetworkManager/NetworkManager.conf</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="4-安装代理"><a href="#4-安装代理" class="headerlink" title="4. 安装代理"></a>4. <strong>安装代理</strong></h1><ul>
 <li><p><strong>安装v2Ray内核</strong></p>
